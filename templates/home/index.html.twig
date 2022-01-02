@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue
+{% endblock %}
+
+{% block body %}
+	<div class="jumbotron text-center">
+
+		<h2>Location, achat et vente biens immobiliers sur Amiens et sa périphérie.</h2>
+		<h3>Bienvenue à l'agence Wazaa IMMO, votre conseil immobilier sur Amiens depuis plus de 40 ans.</h3>
+		<p></p>
+		<p>
+			Vous cherchez un appartement à louer sur Amiens, une maison en location dans la métropole d'Amiens ou dans les proches environs.</p>
+		<p>Vous souhaitez acheter un bien dans le centre ville d'Amiens, à Henriville, dans le quartier de votre choix ou dans la périphérie.
+		</p>
+		<p></p>
+		<p>L'agence Wazaa IMMO, agence immobilière indépendante, adhérente à la FNAIM, met tout en oeuvre pour répondre à votre demande dans les meilleurs délais.</p>
+		<p>Présente depuis de nombreuses années sur le marché immobilier amiénois des particuliers et des professionnels, notre équipe possède une véritable expertise en location, achat, vente, gestion locative et services de syndic de copropriété.</p>
+		<p></p>
+		<p>Nous nous efforçons de vous proposer dans notre sélection d'appartements, maisons et locaux commerciaux, à l'achat ou la location, un choix varié de biens de qualité.</p>
+		<p>Notre équipe d'agents immobiliers sur Amiens et disponible 6 jours sur 7 pour vous accompagner dans vos projets immobiliers.</p>
+
+	</div>
+	<div class="container">
+		<h3>Les derniers biens:</h3>
+		<div class="row flex"></div>
+		{% for produit in produits %}
+			<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+
+						<h5 class="card-title">
+							<a href="https://127.0.0.1:8000/annonce/1">{{produit.WazTitre}}</a>
+						</h5>
+						<p class="card-text">{{produit.WazLocalisation}}</p>
+						<div class="text-primary" style="font-weight: bold;font-size: 1.5rem;">{{produit.WazPrix | number_format(0, '', ' ')}}
+							euros
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>{% endblock %}

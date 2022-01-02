@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	produit.WazTitre
+{% endblock %}
+
+{% block body %}
+	<div class="jumbotron text-center">
+		<h1 class="mt-4">{{produit.WazTitre}}</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<image href="placeholder">
+			<a href="#" class="btn btn-primary">Contacter l'agence</a>
+		</div>
+		<div class="col-md-6">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
+						<td>{{ produit.id }}</td>
+					</tr>
+					<tr>
+						<th>Type d'offre</th>
+						<td>{{ produit.WazTypeOffre }}</td>
+					</tr>
+					<tr>
+						<th>Type de bien</th>
+						<td>{{ produit.WazTypeBien }}</td>
+					</tr>
+					<tr>
+						<th>Nombre de Piece</th>
+						<td>{{ produit.WazNnPiece }}</td>
+					</tr>
+					<tr>
+						<th>Reference</th>
+						<td>{{ produit.WazReference }}</td>
+					</tr>
+					<tr>
+						<th>Titre</th>
+						<td>{{ produit.WazTitre }}</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{ produit.WazDescription }}</td>
+					</tr>
+					<tr>
+						<th>Localisation</th>
+						<td>{{ produit.WazLocalisation }}</td>
+					</tr>
+					<tr>
+						<th>Surface Habitable</th>
+						<td>{{ produit.WazSurfaceHabitable }}</td>
+					</tr>
+					<tr>
+						<th>Surface Totale</th>
+						<td>{{ produit.WazSurfaceTotale }}</td>
+					</tr>
+					<tr>
+						<th>Option</th>
+						<td>{{ produit.WazOption }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ produit.WazPrix }}</td>
+					</tr>
+					<tr>
+						<th>Diagnostique</th>
+						<td>{{ produit.WazDiagnostique }}</td>
+					</tr>
+
+					<tr>
+						<th>DateAjout</th>
+						<td>{{ produit.WazDateAjout ? produit.WazDateAjout|date('Y-m-d') : '' }}</td>
+					</tr>
+					<tr>
+						<th>DateModif</th>
+						<td>{{ produit.WazDateModif ? produit.WazDateModif|date('Y-m-d H:i:s') : '' }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<a href="{{ path('annonce_index') }}">Retour a la liste</a>
+
+			<a href="{{ path('annonce_edit', {'id': produit.id}) }}">détails</a>
+
+			{{ include('annonce/_delete_form.html.twig') }}
+		{% endblock %}

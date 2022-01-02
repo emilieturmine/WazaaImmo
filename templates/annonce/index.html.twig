@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Biens
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4">
+		<h3>Voir tous nos biens:</h3>
+	</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>WazTypeOffre</th>
+                <th>WazTypeBien</th>
+                <th>WazNnPiece</th>
+                <th>WazReference</th>
+                <th>WazTitre</th>
+                <th>WazDescription</th>
+                <th>WazLocalisation</th>
+                <th>WazSurfaceHabitable</th>
+                <th>WazSurfaceTotale</th>
+                <th>WazOption</th>
+                <th>WazPrix</th>
+                <th>WazDiagnostique</th>
+                <th>WazPhotos</th>
+                <th>WazDateAjout</th>
+                <th>WazDateModif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.WazTypeOffre }}</td>
+                <td>{{ produit.WazTypeBien }}</td>
+                <td>{{ produit.WazNnPiece }}</td>
+                <td>{{ produit.WazReference }}</td>
+                <td>{{ produit.WazTitre }}</td>
+                <td>{{ produit.WazDescription }}</td>
+                <td>{{ produit.WazLocalisation }}</td>
+                <td>{{ produit.WazSurfaceHabitable }}</td>
+                <td>{{ produit.WazSurfaceTotale }}</td>
+                <td>{{ produit.WazOption }}</td>
+                <td>{{ produit.WazPrix }}</td>
+                <td>{{ produit.WazDiagnostique }}</td>
+                <td>{{ produit.WazPhotos }}</td>
+                <td>{{ produit.WazDateAjout ? produit.WazDateAjout|date('Y-m-d') : '' }}</td>
+                <td>{{ produit.WazDateModif ? produit.WazDateModif|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('annonce_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('annonce_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('annonce_new') }}">Create new</a>
+{% endblock %}
